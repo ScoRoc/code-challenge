@@ -1,0 +1,113 @@
+/* MAIN APP STYLING START */
+::selection {
+  background: rgb(242, 101, 31);
+  color: rgb(0, 191, 243);
+}
+h1 {
+  font-size: 45px;
+  font-family: serif;
+}
+h3 {
+  font-size: 30px;
+}
+a {
+  text-decoration: none;
+  font-family: cursive;
+}
+a:hover {
+  text-decoration: underline;
+  color: pink;
+}
+li {
+  margin-top: 15px;
+}
+.App {
+  text-align: center;
+  color: rgb(242, 101, 31);
+}
+/* MAIN APP STYLING END */
+
+/* //////////////////////////////////////////////////////////////////////// */
+
+/* GENERAL STYLING 2 START */
+.bold {
+  font-weight: bold;
+}
+.normalWeight {
+  font-weight: normal;
+}
+.underline {
+  text-decoration: underline;
+}
+.green {
+  color: green;
+}
+.white {
+  color: white;
+}
+/* GENERAL STYLING END */
+
+/* //////////////////////////////////////////////////////////////////////// */
+
+/* HOMEPAGE STYLING BEGIN */
+.goHome {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: 3px solid orange;
+  border-radius: 4px;
+  background-color: black;
+  padding: 4px 7px;
+}
+/* HOMEPAGE STYLING END */
+
+/* //////////////////////////////////////////////////////////////////////// */
+
+/* TO DO LIST COMPONENT START */
+.top {
+  background-color: rgba(50, 50, 50, .7);
+  width: 100vw;
+  padding: 30px 0px 15px 0px;
+}
+.docsContainer {
+  width: 100%;
+  background: rgba(50, 50, 50, .7);
+  border: 1px solid grey;
+  position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  top: 0px;
+}
+.docs {
+  display: inline-block;
+  list-style-type: none;
+}
+.listItem {
+  float: left;
+  padding: 0px 1vw;
+  font-size: 1.5vw;
+}
+.orderedList {
+  text-align: left;
+}
+.toDo {
+  padding-top: 50px;
+}
+@media screen and (min-width: 1200px) {
+  .listItem {
+     font-size: 16px;
+  }
+}
+/* TO DO LIST COMPONENT END */
+
+/* //////////////////////////////////////////////////////////////////////// */
+
+/* GENERAL STYLING 2 START */
+
+
+
+/* GENERAL STYLING END */
+
+/* //////////////////////////////////////////////////////////////////////// */
