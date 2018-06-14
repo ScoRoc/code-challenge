@@ -40,7 +40,7 @@ class ToDoList extends Component {
         <ol className='orderedList toDo'>
           <li className='bold'><h3>Fork and Clone</h3>
             <ul>
-              <li className='normalWeight'>go to <a href=''>this github account</a> and fork/clone the boilerplate.</li>
+              <li className='normalWeight'>go to <a href='https://github.com/stevens1434/code-challenge'>this github account</a> and fork/clone the boilerplate.</li>
               <li className='normalWeight'>get the app started on your local machine.</li>
               <li className='normalWeight'>There are some questions below. Write the answers down somewhere and bring them with you to your interview.</li>
               <li className='normalWeight'>This is intentionally vague. We want to see your creativity and problem solving skills.</li>
