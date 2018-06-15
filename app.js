@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 //FOR MONGOOSE
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/boilerplate', { useMongoClient: true }); //commented out for heroku // "boilerplate" will be name of db
-mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});  // for heroku deployment
+// mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});  // for heroku deployment
 
 //FOR ROUTES
 var index = require('./routes/index');
