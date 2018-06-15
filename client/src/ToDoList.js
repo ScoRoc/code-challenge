@@ -22,8 +22,8 @@ class ToDoList extends Component {
   render() {
     return (
       <div className='App'>
+        <a className='goHome white' href='/'>Go Back Home</a>
         <div className='top'>
-          <a className='goHome white' href='/'>Go Back Home</a>
           <h1 className='appTitle'>THIS IS YOUR BOILERPLATE</h1>
         </div>
         <div className='docsContainer'>
