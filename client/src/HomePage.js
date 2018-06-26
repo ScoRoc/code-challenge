@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import {
-  BrowserRouter,
-  withRouter,
-  Route
-} from 'react-router-dom';
 
 class HomePage extends Component {
   constructor(props) {
