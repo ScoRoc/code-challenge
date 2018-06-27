@@ -1,4 +1,4 @@
-//DECLARING NPM PACKAGES
+
 require('dotenv').config();
 var express = require('express');
 var path = require('path');
@@ -9,11 +9,11 @@ var bodyParser = require('body-parser');
 
 //FOR MONGOOSE
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/boilerplate', { useMongoClient: true }); //commented out for heroku // "boilerplate" will be name of db
+mongoose.connect('mongodb://localhost/foundry10_code_challenge', { useMongoClient: true }); //commented out for heroku // "boilerplate" will be name of db
 // mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});  // for heroku deployment
 
-//FOR ROUTES
 var index = require('./routes/index');
+var auth = require('./routes/auth');
 
 //USING NPM PACKAGES
 var app = express();
@@ -31,8 +31,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-//FOR ROUTES AGAIN
-app.use('/', index);
 // for heroku deployment
 // app.get('*', function(req, res, next) {
 // 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
@@ -58,6 +56,8 @@ app.use('/', index);
 //   res.render('error');
 // });
 
+app.use('/', index);
+app.use('/auth', auth);
 
 // change pkg json start script to this
 //     "start": "PORT=3001 node ./bin/www"

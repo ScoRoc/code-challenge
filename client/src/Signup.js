@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Signup extends Component {
   constructor(props) {
@@ -11,7 +12,10 @@ class Signup extends Component {
     let name = this.name.value;
     let email = this.email.value;
     let password = this.password.value;
-    console.log(name, email, password);
+    axios.post('/auth/signup', { name, email, password })
+      .then(result => {
+        console.log(result);
+      })
   }
 
   render() {
