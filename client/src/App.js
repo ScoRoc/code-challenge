@@ -6,9 +6,10 @@ import {
   Route
 } from 'react-router-dom';
 import Navbar from './Navbar';
+import HomePage from './HomePage';
+import Profile from './Profile';
 import Signup from './Signup';
 import Login from './Login';
-import HomePage from './HomePage';
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends Component {
           <Route exact path="/"
               render={(props) => <HomePage />}
             />
+            <Route path='/profile' component={Profile} />
           <Route path='/signup' component={Signup} />
           <Route path='/login' component={Login} />
         </div>
