@@ -15,21 +15,34 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      state: null
+      user: null
     }
+    this.liftUser = this.liftUser.bind(this);
+  }
+
+  liftUser(user) {
+    this.setState({
+      user
+    })
   }
 
   render() {
     return (
       <Router>
         <div>
-          <Navbar />
+          <Navbar user={this.state.user} />
           <Route exact path="/"
               render={(props) => <HomePage />}
             />
-            <Route path='/profile' component={Profile} />
-          <Route path='/signup' component={Signup} />
-          <Route path='/login' component={Login} />
+          <Route path='/profile' render={() =>
+            <Profile user={this.state.user} />
+            } />
+          <Route path='/signup' render={() =>
+            <Signup liftUser={() => this.liftUser()} />
+          } />
+          <Route path='/login' render={() =>
+            <Login liftUser={() => this.liftUser()} />
+          } />
         </div>
       </Router>
     );
