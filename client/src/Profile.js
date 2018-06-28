@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddSticky from './AddSticky';
 import StickyBoard from './StickyBoard';
 
 class Profile extends Component {
@@ -10,6 +11,7 @@ class Profile extends Component {
     return (
       <div>
         <p>Here's your profile page</p>
+        <AddSticky />
         <StickyBoard />
       </div>
 
