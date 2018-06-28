@@ -12,7 +12,7 @@ class Sticky extends Component {
       <Draggable bounds='parent' defaultPosition={{x:5, y:0}}>
         <div className='drag'>
           <div className='drag-inner'>
-            <p>I'm Draggable</p>
+            <p>{this.props.sticky.note}</p>
           </div>
         </div>
       </Draggable>

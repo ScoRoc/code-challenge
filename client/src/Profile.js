@@ -8,11 +8,14 @@ class Profile extends Component {
   }
 
   render() {
+    let board = this.props.user ? <StickyBoard user={this.props.user} /> : false;
+    let name = this.props.user ? this.props.user.name : null;
     return (
       <div>
+        <h1>Hi {name}</h1>
         <p>Here's your profile page</p>
         <AddSticky user={this.props.user} />
-        <StickyBoard />
+        {board}
       </div>
 
     );

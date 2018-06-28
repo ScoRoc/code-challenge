@@ -6,20 +6,33 @@ import './style.css';
 class StickyBoard extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      stickies: null
+    }
   }
 
   componentDidMount() {
-    axios.get('/sticky')
+    axios.get(`/profile/${this.props.user._id}/sticky`)
       .then( result => {
-        console.log(result);
+        this.setState({ stickies: result.data.stickies });
     })
   }
 
   render() {
+    let stickies = null;
+    if (this.state.stickies) {
+      stickies = this.state.stickies.map( (sticky, id) => {
+        <Sticky id={id} sticky={sticky} />
+      });
+      return (
+        <div style={styles.board}>
+          <p>hi</p>
+          {this.stickies}
+        </div>
+      )
+    }
     return (
-      <div style={styles.board}>
-        <Sticky />
-      </div>
+      <div style={styles.board}></div>
     );
   }
 }
