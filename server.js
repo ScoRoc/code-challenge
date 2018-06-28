@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 var express = require('express');
 var path = require('path');
@@ -14,6 +13,7 @@ mongoose.connect('mongodb://localhost/foundry10_code_challenge', { useMongoClien
 
 var index = require('./routes/index');
 var auth = require('./routes/auth');
+var profile = require('./routes/profile');
 
 //USING NPM PACKAGES
 var app = express();
@@ -58,6 +58,7 @@ app.use(function(req, res, next) {
 
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/profile', profile);
 
 // change pkg json start script to this
 //     "start": "PORT=3001 node ./bin/www"

@@ -14,8 +14,8 @@ class AddSticky extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let newSticky = this.newSticky.value;
-    console.log(newSticky);
-    axios.post('/add-sticky', { newSticky })
+    let userId = this.props.user._id
+    axios.post(`/profile/${this.props.user._id}/sticky`, { newSticky, userId })
       .then(result => {
         console.log(result);
         // this.setState({ numberOfStickies: result.stickyNumber });
@@ -30,12 +30,18 @@ class AddSticky extends Component {
         <form id='signup-form' onSubmit={this.handleSubmit}>
           <label htmlFor='new-sticky'>Add Note</label>
           <input id='new-sticky' type='text' ref={ input => {this.newSticky = input}} required />
-          <button type='submit'>Signup</button>
+          <button type='submit' style={styles.button}>Signup</button>
         </form>
       </div>
     );
   }
 
+}
+
+const styles = {
+  button: {
+    cursor: 'pointer'
+  }
 }
 
 export default AddSticky;

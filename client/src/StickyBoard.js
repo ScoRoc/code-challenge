@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import Draggable from 'react-draggable';
+import axios from 'axios';
 import Sticky from './Sticky';
 import './style.css';
 
 class StickyBoard extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount() {
+    axios.get('/sticky')
+      .then( result => {
+        console.log(result);
+    })
   }
 
   render() {

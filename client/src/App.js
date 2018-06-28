@@ -64,7 +64,7 @@ class App extends Component {
           <Route exact path="/" render={() =>
             <HomePage user={this.state.user} />
           } />
-          <Route path='/profile' render={() =>
+          <Route path='/profile/:id' render={() =>
             <Profile user={this.state.user} />
           } />
           <Route path='/signup' render={() =>

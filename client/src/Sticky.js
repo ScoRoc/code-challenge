@@ -9,24 +9,14 @@ class Sticky extends Component {
 
   render() {
     return (
-        <Draggable bounds='parent' defaultPosition={{x:50, y:50}}>
-          <div className='drag'>
-            <div className='drag-inner'>
-              <p>I'm Draggable</p>
-            </div>
+      <Draggable bounds='parent' defaultPosition={{x:5, y:0}}>
+        <div className='drag'>
+          <div className='drag-inner'>
+            <p>I'm Draggable</p>
           </div>
-        </Draggable>
+        </div>
+      </Draggable>
     );
-  }
-}
-
-const styles = {
-  board: {
-    position: 'relative',
-    background: 'rgba(235, 210, 215, 0.7)',
-    height: '70vh',
-    width: '85vw',
-    margin: '0 auto'
   }
 }
 

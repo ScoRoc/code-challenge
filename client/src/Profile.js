@@ -11,7 +11,7 @@ class Profile extends Component {
     return (
       <div>
         <p>Here's your profile page</p>
-        <AddSticky />
+        <AddSticky user={this.props.user} />
         <StickyBoard />
       </div>
 

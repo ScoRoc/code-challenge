@@ -11,7 +11,7 @@ class Navbar extends Component {
       return (
         <div>
           <li><Link to='/'>Home</Link></li>
-          <li><Link to='/profile'>Profile</Link></li>
+          <li><Link to={`/profile/${this.props.user._id}`}>Profile</Link></li>
           <li><Link to='/' onClick={() => this.props.logout()}>Logout</Link></li>
         </div>
       );

@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var stickySchema = new mongoose.Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
   note: {
     type: String,
     required: true,
@@ -15,6 +21,6 @@ var stickySchema = new mongoose.Schema({
   }
 });
 
-var Sticky = mongoose.model('Sticky', userSchema);
+var Sticky = mongoose.model('Sticky', stickySchema);
 
 module.exports = Sticky;
