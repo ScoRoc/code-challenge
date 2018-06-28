@@ -5,6 +5,7 @@ import {
   // withRouter,
   Route
 } from 'react-router-dom';
+import axios from 'axios';
 import Navbar from './Navbar';
 import HomePage from './HomePage';
 import Profile from './Profile';
@@ -15,33 +16,62 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: null
+      user: null,
+      token: null
     }
-    this.liftUser = this.liftUser.bind(this);
+    this.liftAuth = this.liftAuth.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
-  liftUser(user) {
+  liftAuth(userData) {
     this.setState({
-      user
+      user: userData.user,
+      token: userData.token
     })
+  }
+
+  logout() {
+    localStorage.removeItem('f10Challenge');
+    this.setState({
+      user: null,
+      token: null
+    })
+  }
+
+  componentDidMount() {
+    let token = localStorage.getItem('f10Challenge');
+    if (!token) {
+      localStorage.removeItem('f10Challenge');
+      this.logout();
+    } else {
+      axios.post('/auth/validate', {
+        token
+      }).then(result => {
+        localStorage.setItem('f10Challenge', result.data.token);
+        this.setState({
+          user: result.data.user,
+          token: result.data.token
+        })
+      }).catch(err => console.log(err));
+    }
   }
 
   render() {
     return (
       <Router>
         <div>
-          <Navbar user={this.state.user} />
-          <Route exact path="/"
-              render={(props) => <HomePage />}
-            />
+          <Navbar user={this.state.user} logout={this.logout} />
+          <Route exact path="/" render={() =>
+            <HomePage user={this.state.user} />
+          } />
           <Route path='/profile' render={() =>
             <Profile user={this.state.user} />
-            } />
+          } />
           <Route path='/signup' render={() =>
-            <Signup liftUser={() => this.liftUser()} />
+            <Signup liftAuth={this.liftAuth} />
           } />
           <Route path='/login' render={() =>
-            <Login liftUser={() => this.liftUser()} />
+            <Login liftAuth={this.liftAuth} />
           } />
         </div>
       </Router>

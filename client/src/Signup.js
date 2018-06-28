@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class Signup extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      loggedIn: false
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -14,11 +18,15 @@ class Signup extends Component {
     let password = this.password.value;
     axios.post('/auth/signup', { name, email, password })
       .then(result => {
-        console.log(result);
+        localStorage.setItem('f10Challenge', result.data.token);
+        this.props.liftAuth(result.data);
+        this.setState({ loggedIn: true });
       })
   }
 
   render() {
+    if (this.state.loggedIn) return <Redirect to='/' />
+
     return (
       <div>
         <form id='signup-form' onSubmit={this.handleSubmit}>

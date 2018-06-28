@@ -7,15 +7,23 @@ class Navbar extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/profile'>Profile</Link></li>
-        <li><Link to='/signup'>Signup</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/logout'>Logout</Link></li>
-      </div>
-    );
+    if (this.props.user) {
+      return (
+        <div>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/profile'>Profile</Link></li>
+          <li><Link to='/' onClick={() => this.props.logout()}>Logout</Link></li>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/signup'>Signup</Link></li>
+          <li><Link to='/login'>Login</Link></li>
+        </div>
+      );
+    }
   }
 
 }
