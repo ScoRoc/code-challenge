@@ -20,21 +20,23 @@ router.get('/:id/sticky', function(req, res) {
 // POSTS a new sticky to a user
 router.post('/:id/sticky', function(req, res) {
   let { newSticky, userId } = req.body;
-  User.findById(userId, function(err, user) {
-    Sticky.create({
-      userId: user._id,
-      note: newSticky,
-      x: 0,
-      y: 0
-    }, function(err, sticky) {
-      if (err) {
-        res.send(err);
-      } else {
-        console.log(sticky);
-        res.send(sticky);
-      }
-    });
+  Sticky.create({
+    userId: userId,
+    note: newSticky,
+    x: 0,
+    y: 0
+  }, function(err, sticky) {
+    if (err) {
+      res.send(err);
+    } else {
+      console.log(sticky);
+      res.send(sticky);
+    }
   });
+});
+
+router.put('/:id/sticky', (req, res) => {
+  console.log(req);
 });
 
 module.exports = router;

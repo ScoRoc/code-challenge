@@ -36,6 +36,7 @@ router.post('/signup', (req, res) => {
         name: req.body.name,
         email: req.body.email.toLowerCase(),
         password: req.body.password,
+        numberOfStickies: 0
       }, function(err, user) {
         if (err) {
           console.log("GOT AN ERROR CREATING THE USER")

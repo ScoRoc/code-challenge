@@ -13,6 +13,7 @@ class Sticky extends Component {
         <div className='drag'>
           <div className='drag-inner'>
             <p>{this.props.sticky.note}</p>
+            <p>{this.state.x}</p>
           </div>
         </div>
       </Draggable>

@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class AddSticky extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      numberOfStickies: 0
-    }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,14 +13,12 @@ class AddSticky extends Component {
     let userId = this.props.user._id
     axios.post(`/profile/${this.props.user._id}/sticky`, { newSticky, userId })
       .then(result => {
-        console.log(result);
-        // this.setState({ numberOfStickies: result.stickyNumber });
+        console.log(result.data);
+        this.newSticky.value = '';
       })
   }
 
   render() {
-    if (this.state.loggedIn) return <Redirect to='/' />
-
     return (
       <div>
         <form id='signup-form' onSubmit={this.handleSubmit}>
